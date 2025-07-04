@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Wellness - Premium Spa & Wellness Services</title>
+    <meta name="description" content="Indulge in premium spa and wellness services at Luxury Wellness. Experience world-class treatments, therapies, and holistic wellness in an opulent setting.">
+    <meta property="og:title" content="Luxury Wellness - Premium Spa & Wellness Services">
+    <meta property="og:description" content="Experience the ultimate in luxury wellness with our premium spa treatments, holistic therapies, and world-class facilities.">
+    <meta property="og:type" content="website">
+    
+    <!-- Custom Font - Qanelas Soft Semi-Bold -->
+    <style>
+        @font-face {
+            font-family: 'Qanelas Soft';
+            src: url('./qanelas-soft-semi-bold.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #B8860B;
+            --primary-black: #1A1A1A;
+            --secondary-black: #2C2C2C;
+            --primary-beige: #F5F5DC;
+            --secondary-beige: #E8E8E8;
+            --white: #FFFFFF;
+            --accent-brown: #8B4513;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+            --luxury-cream: #FAF7F0;
+            --luxury-bronze: #CD7F32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            letter-spacing: -0.01em;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Qanelas Soft', 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            letter-spacing: -0.025em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--primary-gold);
+        }
+
+        .logo-icon {
+            color: var(--primary-gold);
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: 'Qanelas Soft', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), 
+                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: var(--luxury-cream);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Qanelas Soft', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--primary-black);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: var(--primary-black);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--luxury-cream);
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-gold);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .check-icon {
+            color: var(--primary-gold);
+            margin-right: 0.75rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--secondary-beige);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--secondary-beige);
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--secondary-black);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--secondary-beige);
+        }
+
+        /* Package Cards */
+        .packages {
+            background: var(--primary-beige);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 4rem;
+        }
+
+        .packages h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-gold);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-gold);
+        }
+
+        .package-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            color: var(--primary-gold);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Hidden class for JavaScript */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Active page styles */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <i data-lucide="sparkles" class="logo-icon"></i>
+                <span class="logo-text">Luxury Wellness</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('services')" class="nav-link">Services</a></li>
+                <li><a href="#" onclick="showPage('treatments')" class="nav-link">Treatments</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Luxury Wellness</h1>
+                <p>Indulge in the ultimate spa experience where luxury meets wellness. Our world-class treatments and opulent facilities await your arrival.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showPage('contact')">Book Experience</a>
+                    <a href="#" class="btn btn-outline" onclick="showPage('services')">Explore Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Luxury Wellness?</h2>
+                    <p>Experience unparalleled luxury and personalized wellness in our world-class spa sanctuary.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i data-lucide="crown" class="feature-icon"></i>
+                        <h3>Premium Excellence</h3>
+                        <p>World-class treatments using the finest products and cutting-edge techniques for unmatched results.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i data-lucide="leaf" class="feature-icon"></i>
+                        <h3>Holistic Wellness</h3>
+                        <p>Comprehensive approach to wellness combining ancient wisdom with modern luxury for complete rejuvenation.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i data-lucide="heart" class="feature-icon"></i>
+                        <h3>Personalized Care</h3>
+                        <p>Bespoke wellness journeys tailored to your unique needs and preferences for optimal results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="section" style="background: var(--luxury-cream);">
+            <div class="container">
+                <div class="section-title">
+                    <h1>About Luxury Wellness</h1>
+                    <p>Pioneering luxury wellness since 2010</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Luxury spa interior">
+                    </div>
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>Founded by renowned wellness expert Isabella Montrose, Luxury Wellness was born from a vision to create the world's most opulent and transformative spa experience.</p>
+                        <p>With over two decades of experience in luxury hospitality and wellness, Isabella recognized the need for a sanctuary where discerning clients could escape and indulge in the ultimate wellness journey.</p>
+                        <p>Our philosophy combines timeless spa traditions with innovative wellness technologies in an environment of uncompromising luxury.</p>
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Our Philosophy</h2>
+                        <p>To provide an extraordinary wellness experience that transcends traditional spa services, creating lasting transformation through luxury, innovation, and personalized care.</p>
+                        
+                        <ul class="check-list">
+                            <li><i data-lucide="check" class="check-icon"></i> Bespoke wellness programs</li>
+                            <li><i data-lucide="check" class="check-icon"></i> World-class facilities and amenities</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Expert therapists and wellness consultants</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Commitment to excellence and innovation</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Sustainable luxury practices</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Luxury treatment room">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Luxury Services</h1>
+                    <p>Discover our comprehensive collection of world-class wellness services and transformative experiences.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Signature Spa Rituals">
+                        <div class="service-card-content">
+                            <h3>Signature Spa Rituals</h3>
+                            <p>Exclusive multi-sensory experiences designed to transport you to a state of ultimate relaxation and rejuvenation.</p>
+                            <div class="service-price">From $350</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Advanced Facial Therapies">
+                        <div class="service-card-content">
+                            <h3>Advanced Facial Therapies</h3>
+                            <p>Cutting-edge skincare treatments using premium products and innovative technologies for radiant, youthful skin.</p>
+                            <div class="service-price">From $285</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Holistic Body Treatments">
+                        <div class="service-card-content">
+                            <h3>Holistic Body Treatments</h3>
+                            <p>Comprehensive body therapies combining massage, exfoliation, and nourishment for complete renewal.</p>
+                            <div class="service-price">From $425</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Wellness Consultations">
+                        <div class="service-card-content">
+                            <h3>Wellness Consultations</h3>
+                            <p>Personalized wellness assessments and lifestyle coaching to optimize your health and well-being journey.</p>
+                            <div class="service-price">From $195</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Meditation & Mindfulness">
+                        <div class="service-card-content">
+                            <h3>Meditation & Mindfulness</h3>
+                            <p>Guided meditation sessions and mindfulness training in our serene meditation pavilion.</p>
+                            <div class="service-price">From $150</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Luxury Amenities">
+                        <div class="service-card-content">
+                            <h3>Luxury Amenities</h3>
+                            <p>Access to our world-class facilities including thermal pools, saunas, steam rooms, and relaxation lounges.</p>
+                            <div class="service-price">Day Pass $125</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package Deals -->
+                <div class="packages">
+                    <h2>Exclusive Wellness Packages</h2>
+                    <div class="packages-grid">
+                        <div class="package-card">
+                            <h3>Renewal Retreat</h3>
+                            <p>Half-day wellness journey including signature ritual, facial therapy, and amenities access</p>
+                            <div class="package-price">$595 (Save $165)</div>
+                        </div>
+                        <div class="package-card">
+                            <h3>Ultimate Transformation</h3>
+                            <p>Full-day luxury experience with multiple treatments, consultation, and gourmet wellness meal</p>
+                            <div class="package-price">$1,285 (Save $315)</div>
+                        </div>
+                        <div class="package-card">
+                            <h3>Wellness Membership</h3>
+                            <p>Monthly unlimited amenities access plus priority booking and member exclusive treatments</p>
+                            <div class="package-price">$385/month</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Treatments Page -->
+    <div id="treatments" class="page">
+        <section class="section" style="background: var(--luxury-cream);">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Signature Treatments</h1>
+                    <p>Experience our exclusive collection of transformative treatments designed for the discerning wellness connoisseur.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Golden Goddess Ritual">
+                        <div class="service-card-content">
+                            <h3>Golden Goddess Ritual</h3>
+                            <p>Our signature 24-karat gold treatment featuring full-body exfoliation, massage, and golden mask application.</p>
+                            <div class="service-price">120min - $650</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Diamond Radiance Facial">
+                        <div class="service-card-content">
+                            <h3>Diamond Radiance Facial</h3>
+                            <p>Luxurious diamond-infused facial treatment using microdermabrasion and precious mineral serums.</p>
+                            <div class="service-price">90min - $485</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Himalayan Crystal Healing">
+                        <div class="service-card-content">
+                            <h3>Himalayan Crystal Healing</h3>
+                            <p>Therapeutic massage using heated Himalayan salt stones and crystal energy alignment techniques.</p>
+                            <div class="service-price">90min - $395</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Platinum Age-Defying Treatment">
+                        <div class="service-card-content">
+                            <h3>Platinum Age-Defying Treatment</h3>
+                            <p>Advanced anti-aging facial featuring platinum peptides, LED therapy, and collagen stimulation.</p>
+                            <div class="service-price">105min - $565</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Royal Couples Retreat">
+                        <div class="service-card-content">
+                            <h3>Royal Couples Retreat</h3>
+                            <p>Intimate couples experience in our private villa suite with synchronized treatments and champagne service.</p>
+                            <div class="service-price">150min - $1,285</div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Chakra Balancing Journey">
+                        <div class="service-card-content">
+                            <h3>Chakra Balancing Journey</h3>
+                            <p>Holistic energy healing experience combining sound therapy, aromatherapy, and chakra stone placement.</p>
+                            <div class="service-price">120min - $445</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialty Treatments -->
+                <div class="packages">
+                    <h2>Seasonal Specialties</h2>
+                    <div class="packages-grid">
+                        <div class="package-card">
+                            <h3>Winter Solstice Renewal</h3>
+                            <p>Warming full-body treatment with hot stone massage, nourishing body wrap, and warming essential oils</p>
+                            <div class="package-price">Limited Time - $425</div>
+                        </div>
+                        <div class="package-card">
+                            <h3>Spring Awakening Detox</h3>
+                            <p>Purifying treatment featuring lymphatic drainage, detoxifying clay wrap, and energizing aromatherapy</p>
+                            <div class="package-price">Available March-May - $385</div>
+                        </div>
+                        <div class="package-card">
+                            <h3>Summer Radiance Glow</h3>
+                            <p>Hydrating and brightening treatment with vitamin C infusion, cooling cucumber wrap, and illuminating facial</p>
+                            <div class="package-price">Available June-August - $355</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Contact Luxury Wellness</h1>
+                    <p>Begin your journey to ultimate wellness. Our concierge team is ready to curate your perfect experience.</p>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">Service Interest *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select your interest...</option>
+                                <option value="signature-rituals">Signature Spa Rituals</option>
+                                <option value="facial-therapies">Advanced Facial Therapies</option>
+                                <option value="body-treatments">Holistic Body Treatments</option>
+                                <option value="wellness-consultation">Wellness Consultations</option>
+                                <option value="treatments">Signature Treatments</option>
+                                <option value="packages">Wellness Packages</option>
+                                <option value="membership">Wellness Membership</option>
+                                <option value="custom">Custom Experience</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" name="time">
+                                    <option value="">Select time...</option>
+                                    <option value="9:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="1:00">1:00 PM</option>
+                                    <option value="2:00">2:00 PM</option>
+                                    <option value="3:00">3:00 PM</option>
+                                    <option value="4:00">4:00 PM</option>
+                                    <option value="5:00">5:00 PM</option>
+                                    <option value="6:00">6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Special Requests or Preferences</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your wellness goals, any special occasions, dietary restrictions, or preferences we should know about..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary" style="padding: 1rem 2.5rem;">Send Inquiry</button>
+                        </div>
+                    </form>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="phone" class="contact-icon"></i>
+                            <div>
+                                <strong>Reservations</strong><br>
+                                (555) 987-6543
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail" class="contact-icon"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                concierge@luxurywellness.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="map-pin" class="contact-icon"></i>
+                            <div>
+                                <strong>Location</strong><br>
+                                1250 Wellness Boulevard<br>Beverly Hills, CA 90210
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="clock" class="contact-icon"></i>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Daily 8:00 AM - 9:00 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <i data-lucide="sparkles" style="color: var(--primary-gold); font-size: 1.5rem;"></i>
+                        <span style="font-size: 1.25rem; font-weight: 600; font-family: 'Qanelas Soft', sans-serif;">Luxury Wellness</span>
+                    </div>
+                    <p style="color: var(--secondary-beige); margin-bottom: 1rem;">
+                        The ultimate destination for luxury wellness and transformative spa experiences.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('services')">Signature Spa Rituals</a></li>
+                        <li><a href="#" onclick="showPage('services')">Advanced Facial Therapies</a></li>
+                        <li><a href="#" onclick="showPage('treatments')">Signature Treatments</a></li>
+                        <li><a href="#" onclick="showPage('services')">Wellness Consultations</a></li>
+                        <li><a href="#" onclick="showPage('services')">Luxury Amenities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('services')">Services</a></li>
+                        <li><a href="#" onclick="showPage('treatments')">Treatments</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div style="color: var(--secondary-beige);">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 0.75rem;">
+                            <i data-lucide="map-pin" style="margin-right: 0.75rem; margin-top: 0.125rem; flex-shrink: 0;"></i>
+                            <span>1250 Wellness Boulevard<br>Beverly Hills, CA 90210</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
+                            <i data-lucide="phone" style="margin-right: 0.75rem;"></i>
+                            <span>(555) 987-6543</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i data-lucide="mail" style="margin-right: 0.75rem;"></i>
+                            <span>concierge@luxurywellness.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxury Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set minimum date to today for contact form
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
+            }
+        });
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Find and activate the corresponding nav link
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.interest) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Thank you for your inquiry! Our luxury wellness concierge will contact you within 24 hours to arrange your perfect experience.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
