@@ -636,9 +636,94 @@
         .page.active {
             display: block;
         }
+        /* Top Contact Bar */
+        .top-contact-bar {
+            background: var(--primary-black);
+            color: var(--secondary-beige);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-info-top {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-item-top {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item-top i {
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+        }
+
+        .social-links-top {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links-top a {
+            color: var(--secondary-beige);
+            transition: color 0.3s;
+        }
+
+        .social-links-top a:hover {
+            color: var(--primary-gold);
+        }
+
+        @media (max-width: 768px) {
+            .top-contact-content {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .contact-info-top {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="top-contact-content">
+                <div class="contact-info-top">
+                    <div class="contact-item-top">
+                        <i data-lucide="phone"></i>
+                        <span>(555) 987-6543</span>
+                    </div>
+                    <div class="contact-item-top">
+                        <i data-lucide="mail"></i>
+                        <span>concierge@luxurywellness.com</span>
+                    </div>
+                    <div class="contact-item-top">
+                        <i data-lucide="map-pin"></i>
+                        <span>Beverly Hills, CA</span>
+                    </div>
+                </div>
+                <div class="social-links-top">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <nav class="container">
