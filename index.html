@@ -173,6 +173,66 @@
                 width: 100%;
             }
 
+            /* Dropdown Menu Styles */
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-toggle {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .dropdown-toggle i {
+                font-size: 0.8rem;
+                transition: transform 0.3s ease;
+            }
+
+            .dropdown:hover .dropdown-toggle i {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--white);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 0.5rem;
+                padding: 0.5rem 0;
+                min-width: 200px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+                z-index: 100;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 0.75rem 1rem;
+                color: var(--text-dark);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .dropdown-menu a::after {
+                display: none;
+            }
+
+            .dropdown-menu a:hover {
+                background: var(--luxury-cream);
+                color: var(--primary-gold);
+            }
+
             .mobile-menu-btn {
                 display: none;
                 background: none;
@@ -203,7 +263,7 @@
                 right: 0;
                 bottom: 0;
                 background: black;
-                opacity: 0.65;
+                opacity: 0.3;
                 z-index: 1;
             }
 
@@ -626,6 +686,21 @@
                     display: block;
                 }
 
+                .dropdown-menu {
+                    position: static;
+                    opacity: 1;
+                    visibility: visible;
+                    transform: none;
+                    box-shadow: none;
+                    background: var(--luxury-cream);
+                    border-radius: 0;
+                    margin-top: 0.5rem;
+                }
+
+                .dropdown:hover .dropdown-menu {
+                    display: block;
+                }
+
                 .hero h1 {
                     font-size: 2.5rem;
                 }
@@ -669,6 +744,30 @@
 
             .page.active {
                 display: block;
+            }
+
+            /* Acuity Button Override */
+            .acuity-embed-button {
+                background: var(--primary-gold) !important;
+                color: var(--primary-black) !important;
+                font-family: "Qanelas Soft", "Inter", sans-serif !important;
+                font-weight: 600 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5px !important;
+                border: none !important;
+                border-radius: 0.5rem !important;
+                padding: 1rem 2.5rem !important;
+                text-decoration: none !important;
+                transition: all 0.3s ease !important;
+                box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                -moz-box-shadow: none !important;
+            }
+
+            .acuity-embed-button:hover {
+                background: var(--secondary-gold) !important;
+                transform: translateY(-2px) !important;
+                color: var(--primary-black) !important;
             }
             /* Top Contact Bar */
             .top-contact-bar {
@@ -776,11 +875,6 @@
                         >
                     </li>
                     <li>
-                        <a href="#" onclick="showPage('about')" class="nav-link"
-                            >About</a
-                        >
-                    </li>
-                    <li>
                         <a
                             href="#"
                             onclick="showPage('services')"
@@ -788,12 +882,28 @@
                             >Services</a
                         >
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">About <i data-lucide="chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" onclick="showPage('about')">Our Clinic</a>
+                            <a href="#" onclick="showPage('team')">Meet the Team</a>
+                            <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+                        </div>
+                    </li>
                     <li>
                         <a
                             href="#"
-                            onclick="showPage('treatments')"
+                            onclick="showPage('gift-cards')"
                             class="nav-link"
-                            >Treatments</a
+                            >Gift Cards</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            onclick="showPage('reviews')"
+                            class="nav-link"
+                            >Reviews</a
                         >
                     </li>
                     <li>
@@ -824,12 +934,11 @@
                         facilities await your arrival.
                     </p>
                     <div class="hero-buttons">
-                        <a
-                            href="#"
-                            class="btn btn-primary"
-                            onclick="showPage('contact')"
-                            >Book Experience</a
-                        >
+                         <a href="https://app.acuityscheduling.com/schedule.php?owner=36238480&ref=booking_button" 
+                                target="_blank" 
+                                class="btn btn-primary acuity-embed-button">
+                                Book an Appointment
+                    </a>
                         <a
                             href="#"
                             class="btn btn-outline"
@@ -886,12 +995,12 @@
             </section>
         </div>
 
-        <!-- About Page -->
+        <!-- About Page / Our Clinic -->
         <div id="about" class="page">
             <section class="section" style="background: var(--luxury-cream)">
                 <div class="container">
                     <div class="section-title">
-                        <h1>About Luxury Wellness</h1>
+                        <h1>Our Clinic</h1>
                         <p>Pioneering luxury wellness since 2010</p>
                     </div>
 
@@ -1134,155 +1243,273 @@
             </section>
         </div>
 
-        <!-- Treatments Page -->
-        <div id="treatments" class="page">
-            <section class="section" style="background: var(--luxury-cream)">
+        <!-- Meet the Team Page -->
+        <div id="team" class="page">
+            <section class="section" style="background: white">
                 <div class="container">
                     <div class="section-title">
-                        <h1>Signature Treatments</h1>
-                        <p>
-                            Experience our exclusive collection of
-                            transformative treatments designed for the
-                            discerning wellness connoisseur.
-                        </p>
+                        <h1>Meet the Team</h1>
+                        <p>Our expert wellness professionals dedicated to your transformation</p>
                     </div>
 
                     <div class="services-grid">
                         <div class="service-card">
                             <img
-                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Golden Goddess Ritual"
+                                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                alt="Dr. Isabella Montrose"
                             />
                             <div class="service-card-content">
-                                <h3>Golden Goddess Ritual</h3>
+                                <h3>Dr. Isabella Montrose</h3>
                                 <p>
-                                    Our signature 24-karat gold treatment
-                                    featuring full-body exfoliation, massage,
-                                    and golden mask application.
+                                    Founder & Wellness Director. Over 20 years of experience in luxury wellness and holistic healing.
                                 </p>
-                                <div class="service-price">120min - $650</div>
+                                <div class="service-price">Wellness Consultant</div>
                             </div>
                         </div>
 
                         <div class="service-card">
                             <img
-                                src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Diamond Radiance Facial"
+                                src="https://images.unsplash.com/photo-1594824313472-7e2f5c2b3e92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                alt="Sarah Chen"
                             />
                             <div class="service-card-content">
-                                <h3>Diamond Radiance Facial</h3>
+                                <h3>Sarah Chen</h3>
                                 <p>
-                                    Luxurious diamond-infused facial treatment
-                                    using microdermabrasion and precious mineral
-                                    serums.
+                                    Senior Massage Therapist specializing in deep tissue and therapeutic massage techniques.
                                 </p>
-                                <div class="service-price">90min - $485</div>
+                                <div class="service-price">Licensed Massage Therapist</div>
                             </div>
                         </div>
 
                         <div class="service-card">
                             <img
-                                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Himalayan Crystal Healing"
+                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                alt="Maria Rodriguez"
                             />
                             <div class="service-card-content">
-                                <h3>Himalayan Crystal Healing</h3>
+                                <h3>Maria Rodriguez</h3>
                                 <p>
-                                    Therapeutic massage using heated Himalayan
-                                    salt stones and crystal energy alignment
-                                    techniques.
+                                    Lead Esthetician with expertise in advanced skincare treatments and facial therapies.
                                 </p>
-                                <div class="service-price">90min - $395</div>
+                                <div class="service-price">Master Esthetician</div>
                             </div>
                         </div>
 
                         <div class="service-card">
                             <img
-                                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Platinum Age-Defying Treatment"
+                                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                alt="James Thompson"
                             />
                             <div class="service-card-content">
-                                <h3>Platinum Age-Defying Treatment</h3>
+                                <h3>James Thompson</h3>
                                 <p>
-                                    Advanced anti-aging facial featuring
-                                    platinum peptides, LED therapy, and collagen
-                                    stimulation.
+                                    Wellness Coach specializing in mindfulness, meditation, and holistic lifestyle coaching.
                                 </p>
-                                <div class="service-price">105min - $565</div>
+                                <div class="service-price">Certified Wellness Coach</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Privacy Policy Page -->
+        <div id="privacy" class="page">
+            <section class="section" style="background: var(--luxury-cream)">
+                <div class="container">
+                    <div class="section-title">
+                        <h1>Privacy Policy</h1>
+                        <p>Your privacy and confidentiality are our top priorities</p>
+                    </div>
+
+                    <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                        <div style="background: white; padding: 3rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information We Collect</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                We collect information you provide directly to us, such as when you book appointments, 
+                                sign up for our newsletter, or contact us for services. This includes your name, 
+                                email address, phone number, and health-related information necessary for treatments.
+                            </p>
+
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">How We Use Your Information</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                Your information is used to provide and improve our services, communicate with you, 
+                                and ensure your safety and comfort during treatments. We may also use your information 
+                                to send you promotional materials about our services.
+                            </p>
+
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information Sharing</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                We do not sell, trade, or rent your personal information to third parties. 
+                                We may share your information with trusted partners who assist us in operating 
+                                our business, conducting services, or serving you.
+                            </p>
+
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Data Security</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                We implement appropriate security measures to protect your personal information 
+                                against unauthorized access, alteration, disclosure, or destruction.
+                            </p>
+
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Contact Us</h2>
+                            <p style="color: var(--text-dark);">
+                                If you have questions about this Privacy Policy, please contact us at 
+                                <a href="mailto:privacy@luxurywellness.com" style="color: var(--primary-gold);">privacy@luxurywellness.com</a>
+                                or call us at (555) 987-6543.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Gift Cards Page -->
+        <div id="gift-cards" class="page">
+            <section class="section" style="background: white">
+                <div class="container">
+                    <div class="section-title">
+                        <h1>Gift Cards</h1>
+                        <p>Give the gift of luxury wellness and transformation</p>
+                    </div>
+
+                    <div class="packages">
+                        <div class="packages-grid">
+                            <div class="package-card">
+                                <h3>Wellness Starter</h3>
+                                <p>
+                                    Perfect for first-time visitors. Includes basic amenities access 
+                                    and choice of signature treatment.
+                                </p>
+                                <div class="package-price">$250</div>
+                            </div>
+                            <div class="package-card">
+                                <h3>Luxury Experience</h3>
+                                <p>
+                                    Comprehensive spa day with multiple treatments, 
+                                    full amenities access, and gourmet refreshments.
+                                </p>
+                                <div class="package-price">$500</div>
+                            </div>
+                            <div class="package-card">
+                                <h3>Ultimate Transformation</h3>
+                                <p>
+                                    Our most luxurious package including personalized consultation, 
+                                    multiple premium treatments, and exclusive services.
+                                </p>
+                                <div class="package-price">$1,000</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 3rem;">
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Custom Gift Cards</h2>
+                            <p style="color: var(--text-light); margin-bottom: 2rem;">
+                                Want to create a custom gift card amount? Contact our concierge team 
+                                and we'll create a personalized gift card for any amount.
+                            </p>
+                            <a href="#" class="btn btn-primary" onclick="showPage('contact')">Purchase Gift Card</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Reviews Page -->
+        <div id="reviews" class="page">
+            <section class="section" style="background: var(--luxury-cream)">
+                <div class="container">
+                    <div class="section-title">
+                        <h1>Client Reviews</h1>
+                        <p>What our clients are saying about their luxury wellness experiences</p>
+                    </div>
+
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-card-content">
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "Absolutely transformative experience! The Golden Goddess Ritual 
+                                    exceeded all my expectations. The staff was incredibly professional 
+                                    and the facility is breathtaking."
+                                </p>
+                                <div class="service-price">- Sarah M.</div>
                             </div>
                         </div>
 
                         <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Royal Couples Retreat"
-                            />
                             <div class="service-card-content">
-                                <h3>Royal Couples Retreat</h3>
-                                <p>
-                                    Intimate couples experience in our private
-                                    villa suite with synchronized treatments and
-                                    champagne service.
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "I've been to many spas, but Luxury Wellness is in a league of its own. 
+                                    The attention to detail and personalized service is unmatched."
                                 </p>
-                                <div class="service-price">150min - $1,285</div>
+                                <div class="service-price">- Michael R.</div>
                             </div>
                         </div>
 
                         <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Chakra Balancing Journey"
-                            />
                             <div class="service-card-content">
-                                <h3>Chakra Balancing Journey</h3>
-                                <p>
-                                    Holistic energy healing experience combining
-                                    sound therapy, aromatherapy, and chakra
-                                    stone placement.
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "The couples retreat was the perfect anniversary gift. We felt 
+                                    completely pampered and renewed. Will definitely be returning!"
                                 </p>
-                                <div class="service-price">120min - $445</div>
+                                <div class="service-price">- Jennifer & David L.</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-card-content">
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "The Diamond Radiance Facial gave me the most glowing skin I've ever had. 
+                                    The esthetician was knowledgeable and the results were immediate."
+                                </p>
+                                <div class="service-price">- Amanda K.</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-card-content">
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "From the moment I walked in, I felt like royalty. The amenities are 
+                                    world-class and the treatments are truly luxurious."
+                                </p>
+                                <div class="service-price">- Robert T.</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-card-content">
+                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                                    ★★★★★
+                                </div>
+                                <p style="font-style: italic; margin-bottom: 1rem;">
+                                    "I purchased the wellness membership and it's been the best investment 
+                                    in my health and well-being. The monthly treatments keep me balanced."
+                                </p>
+                                <div class="service-price">- Lisa W.</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Specialty Treatments -->
-                    <div class="packages">
-                        <h2>Seasonal Specialties</h2>
-                        <div class="packages-grid">
-                            <div class="package-card">
-                                <h3>Winter Solstice Renewal</h3>
-                                <p>
-                                    Warming full-body treatment with hot stone
-                                    massage, nourishing body wrap, and warming
-                                    essential oils
-                                </p>
-                                <div class="package-price">
-                                    Limited Time - $425
-                                </div>
-                            </div>
-                            <div class="package-card">
-                                <h3>Spring Awakening Detox</h3>
-                                <p>
-                                    Purifying treatment featuring lymphatic
-                                    drainage, detoxifying clay wrap, and
-                                    energizing aromatherapy
-                                </p>
-                                <div class="package-price">
-                                    Available March-May - $385
-                                </div>
-                            </div>
-                            <div class="package-card">
-                                <h3>Summer Radiance Glow</h3>
-                                <p>
-                                    Hydrating and brightening treatment with
-                                    vitamin C infusion, cooling cucumber wrap,
-                                    and illuminating facial
-                                </p>
-                                <div class="package-price">
-                                    Available June-August - $355
-                                </div>
-                            </div>
-                        </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Share Your Experience</h2>
+                        <p style="color: var(--text-light); margin-bottom: 2rem;">
+                            We'd love to hear about your wellness journey with us. 
+                            Share your review and help others discover the luxury wellness experience.
+                        </p>
+                        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Write a Review</a>
                     </div>
                 </div>
             </section>
@@ -1546,7 +1773,7 @@
                         <ul>
                             <li>
                                 <a href="#" onclick="showPage('about')"
-                                    >About Us</a
+                                    >Our Clinic</a
                                 >
                             </li>
                             <li>
@@ -1555,8 +1782,13 @@
                                 >
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('treatments')"
-                                    >Treatments</a
+                                <a href="#" onclick="showPage('gift-cards')"
+                                    >Gift Cards</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" onclick="showPage('reviews')"
+                                    >Reviews</a
                                 >
                             </li>
                             <li>
@@ -1710,5 +1942,9 @@
                 }
             });
         </script>
+
+        <link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/36238480.css" id="acuity-button-styles" />
+        <script src="https://embed.acuityscheduling.com/embed/button/36238480.js" async></script>
     </body>
 </html>
+
