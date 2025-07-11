@@ -3,26 +3,27 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Luxury Wellness - Premium Spa & Wellness Services</title>
+        <title>Luxury Wellness – Calgary Massage & Wellness</title>
         <meta
             name="description"
-            content="Indulge in premium spa and wellness services at Luxury Wellness. Experience world-class treatments, therapies, and holistic wellness in an opulent setting."
+            content="Premium massage and wellness services in Calgary. Experience world-class treatments, therapies, and holistic wellness in an opulent setting."
         />
         <meta
             property="og:title"
-            content="Luxury Wellness - Premium Spa & Wellness Services"
+            content="Luxury Wellness – Calgary Massage & Wellness"
         />
         <meta
             property="og:description"
             content="Experience the ultimate in luxury wellness with our premium spa treatments, holistic therapies, and world-class facilities."
         />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luxurywellness.com/" />
 
         <!-- Custom Font - Qanelas Soft Semi-Bold -->
         <style>
             @font-face {
                 font-family: "Qanelas Soft";
-                src: url("fonts/Qanelas-Soft-Semi-Bold.woff2") format("woff2");
+                src: url("qanelas-soft-semi-bold.woff2") format("woff2");
                 font-weight: 600;
                 font-style: normal;
                 font-display: swap;
@@ -100,6 +101,37 @@
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 0 1rem;
+            }
+
+            /* Lazy loading images */
+            img {
+                transition: opacity 0.3s ease;
+            }
+
+            img[data-src] {
+                opacity: 0;
+            }
+
+            img.loaded {
+                opacity: 1;
+            }
+
+            /* Skip to content for accessibility */
+            .skip-to-content {
+                position: absolute;
+                top: -40px;
+                left: 6px;
+                background: var(--primary-gold);
+                color: var(--primary-black);
+                padding: 8px;
+                text-decoration: none;
+                border-radius: 4px;
+                z-index: 1000;
+                font-weight: 600;
+            }
+
+            .skip-to-content:focus {
+                top: 6px;
             }
 
             /* Header */
@@ -810,6 +842,7 @@
             .social-links-top a {
                 color: var(--secondary-beige);
                 transition: color 0.3s;
+                text-decoration: none;
             }
 
             .social-links-top a:hover {
@@ -830,28 +863,31 @@
         </style>
     </head>
     <body>
+        <!-- Skip to content link for accessibility -->
+        <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
         <!-- Top Contact Bar -->
         <div class="top-contact-bar">
             <div class="container">
                 <div class="top-contact-content">
                     <div class="contact-info-top">
                         <div class="contact-item-top">
-                            <i data-lucide="phone"></i>
-                            <span>(555) 987-6543</span>
+                            <i data-lucide="phone" aria-hidden="true"></i>
+                            <span>(403) 555-0123</span>
                         </div>
                         <div class="contact-item-top">
-                            <i data-lucide="mail"></i>
-                            <span>concierge@luxurywellness.com</span>
+                            <i data-lucide="mail" aria-hidden="true"></i>
+                            <span>info@luxurywellness.ca</span>
                         </div>
                         <div class="contact-item-top">
-                            <i data-lucide="map-pin"></i>
-                            <span>Beverly Hills, CA</span>
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Calgary, AB</span>
                         </div>
                     </div>
                     <div class="social-links-top">
-                        <a href="#"><i data-lucide="facebook"></i></a>
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="Facebook" onclick="event.preventDefault(); return false;"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram" onclick="event.preventDefault(); return false;"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter" onclick="event.preventDefault(); return false;"><i data-lucide="twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -859,840 +895,825 @@
 
         <!-- Header -->
         <header>
-            <nav class="container">
-                <a href="#" class="logo" onclick="showPage('home')">
-                    <i data-lucide="sparkles" class="logo-icon"></i>
+            <nav class="container" role="navigation" aria-label="Main navigation">
+                <a href="#home" class="logo" onclick="showPage('home'); return false;">
+                    <i data-lucide="sparkles" class="logo-icon" aria-hidden="true"></i>
                     <span class="logo-text">Luxury Wellness</span>
                 </a>
 
                 <ul class="nav-links">
                     <li>
-                        <a
-                            href="#"
-                            onclick="showPage('home')"
-                            class="nav-link active"
-                            >Home</a
-                        >
+                        <a href="#home" class="nav-link active" onclick="showPage('home'); return false;">Home</a>
                     </li>
                     <li>
-                        <a
-                            href="#"
-                            onclick="showPage('services')"
-                            class="nav-link"
-                            >Services</a
-                        >
+                        <a href="#services" class="nav-link" onclick="showPage('services'); return false;">Services</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">About <i data-lucide="chevron-down"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" onclick="showPage('about')">Our Clinic</a>
-                            <a href="#" onclick="showPage('team')">Meet the Team</a>
-                            <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+                        <a href="#about" class="nav-link dropdown-toggle" onclick="showPage('about'); return false;">About <i data-lucide="chevron-down" aria-hidden="true"></i></a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="#about" role="menuitem" onclick="showPage('about'); return false;">Our Clinic</a>
+                            <a href="#team" role="menuitem" onclick="showPage('team'); return false;">Meet the Team</a>
+                            <a href="#privacy" role="menuitem" onclick="showPage('privacy'); return false;">Privacy Policy</a>
                         </div>
                     </li>
                     <li>
-                        <a
-                            href="#"
-                            onclick="showPage('gift-cards')"
-                            class="nav-link"
-                            >Gift Cards</a
-                        >
+                        <a href="#gift-cards" class="nav-link" onclick="showPage('gift-cards'); return false;">Gift Cards</a>
                     </li>
                     <li>
-                        <a
-                            href="#"
-                            onclick="showPage('reviews')"
-                            class="nav-link"
-                            >Reviews</a
-                        >
+                        <a href="#reviews" class="nav-link" onclick="showPage('reviews'); return false;">Reviews</a>
                     </li>
                     <li>
-                        <a
-                            href="#"
-                            onclick="showPage('contact')"
-                            class="nav-link"
-                            >Contact</a
-                        >
+                        <a href="#contact" class="nav-link" onclick="showPage('contact'); return false;">Contact</a>
                     </li>
                 </ul>
 
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i data-lucide="menu"></i>
                 </button>
             </nav>
         </header>
 
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Luxury Wellness</h1>
-                    <p>
-                        Indulge in the ultimate spa experience where luxury
-                        meets wellness. Our world-class treatments and opulent
-                        facilities await your arrival.
-                    </p>
-                    <div class="hero-buttons">
-                         <a href="https://app.acuityscheduling.com/schedule.php?owner=36238480&ref=booking_button" 
-                                target="_blank" 
-                                class="btn btn-primary acuity-embed-button">
-                                Book an Appointment
-                    </a>
-                        <a
-                            href="#"
-                            class="btn btn-outline"
-                            onclick="showPage('services')"
-                            >Explore Services</a
-                        >
-                    </div>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section class="section" style="background: white">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>Why Choose Luxury Wellness?</h2>
+        <main id="main-content">
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Luxury Wellness</h1>
                         <p>
-                            Experience unparalleled luxury and personalized
-                            wellness in our world-class spa sanctuary.
+                            Experience premium massage therapy and wellness services in Calgary.
+                            Our expert therapists provide world-class treatments in an opulent setting.
                         </p>
-                    </div>
-
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <i data-lucide="crown" class="feature-icon"></i>
-                            <h3>Premium Excellence</h3>
-                            <p>
-                                World-class treatments using the finest products
-                                and cutting-edge techniques for unmatched
-                                results.
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <i data-lucide="leaf" class="feature-icon"></i>
-                            <h3>Holistic Wellness</h3>
-                            <p>
-                                Comprehensive approach to wellness combining
-                                ancient wisdom with modern luxury for complete
-                                rejuvenation.
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <i data-lucide="heart" class="feature-icon"></i>
-                            <h3>Personalized Care</h3>
-                            <p>
-                                Bespoke wellness journeys tailored to your
-                                unique needs and preferences for optimal
-                                results.
-                            </p>
+                        <div class="hero-buttons">
+                             <a href="https://app.acuityscheduling.com/schedule.php?owner=36238480&ref=booking_button" 
+                                    target="_blank" 
+                                    class="btn btn-primary acuity-embed-button">
+                                    Book an Appointment
+                        </a>
+                            <a href="#services" class="btn btn-outline" onclick="showPage('services'); return false;">Explore Services</a>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
 
-        <!-- About Page / Our Clinic -->
-        <div id="about" class="page">
-            <section class="section" style="background: var(--luxury-cream)">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Our Clinic</h1>
-                        <p>Pioneering luxury wellness since 2010</p>
-                    </div>
-
-                    <div class="about-grid">
-                        <div class="about-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                                alt="Luxury spa interior"
-                            />
-                        </div>
-                        <div class="about-content">
-                            <h2>Our Story</h2>
+                <!-- Features Section -->
+                <section class="section" style="background: white">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Why Choose Luxury Wellness?</h2>
                             <p>
-                                Founded by renowned wellness expert Isabella
-                                Montrose, Luxury Wellness was born from a vision
-                                to create the world's most opulent and
-                                transformative spa experience.
-                            </p>
-                            <p>
-                                With over two decades of experience in luxury
-                                hospitality and wellness, Isabella recognized
-                                the need for a sanctuary where discerning
-                                clients could escape and indulge in the ultimate
-                                wellness journey.
-                            </p>
-                            <p>
-                                Our philosophy combines timeless spa traditions
-                                with innovative wellness technologies in an
-                                environment of uncompromising luxury.
+                                Experience unparalleled luxury and personalized
+                                wellness in our world-class spa sanctuary.
                             </p>
                         </div>
-                    </div>
 
-                    <div class="about-grid">
-                        <div class="about-content">
-                            <h2>Our Philosophy</h2>
-                            <p>
-                                To provide an extraordinary wellness experience
-                                that transcends traditional spa services,
-                                creating lasting transformation through luxury,
-                                innovation, and personalized care.
-                            </p>
-
-                            <ul class="check-list">
-                                <li>
-                                    <i
-                                        data-lucide="check"
-                                        class="check-icon"
-                                    ></i>
-                                    Bespoke wellness programs
-                                </li>
-                                <li>
-                                    <i
-                                        data-lucide="check"
-                                        class="check-icon"
-                                    ></i>
-                                    World-class facilities and amenities
-                                </li>
-                                <li>
-                                    <i
-                                        data-lucide="check"
-                                        class="check-icon"
-                                    ></i>
-                                    Expert therapists and wellness consultants
-                                </li>
-                                <li>
-                                    <i
-                                        data-lucide="check"
-                                        class="check-icon"
-                                    ></i>
-                                    Commitment to excellence and innovation
-                                </li>
-                                <li>
-                                    <i
-                                        data-lucide="check"
-                                        class="check-icon"
-                                    ></i>
-                                    Sustainable luxury practices
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="about-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                                alt="Luxury treatment room"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Services Page -->
-        <div id="services" class="page">
-            <section class="section" style="background: white">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Luxury Services</h1>
-                        <p>
-                            Discover our comprehensive collection of world-class
-                            wellness services and transformative experiences.
-                        </p>
-                    </div>
-
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Signature Spa Rituals"
-                            />
-                            <div class="service-card-content">
-                                <h3>Signature Spa Rituals</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i data-lucide="crown" class="feature-icon" aria-hidden="true"></i>
+                                <h3>Premium Excellence</h3>
                                 <p>
-                                    Exclusive multi-sensory experiences designed
-                                    to transport you to a state of ultimate
-                                    relaxation and rejuvenation.
+                                    World-class massage treatments using the finest products
+                                    and cutting-edge techniques for unmatched results.
                                 </p>
-                                <div class="service-price">From $350</div>
                             </div>
-                        </div>
 
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Advanced Facial Therapies"
-                            />
-                            <div class="service-card-content">
-                                <h3>Advanced Facial Therapies</h3>
+                            <div class="feature-card">
+                                <i data-lucide="leaf" class="feature-icon" aria-hidden="true"></i>
+                                <h3>Holistic Wellness</h3>
                                 <p>
-                                    Cutting-edge skincare treatments using
-                                    premium products and innovative technologies
-                                    for radiant, youthful skin.
+                                    Comprehensive approach to wellness combining
+                                    ancient wisdom with modern luxury for complete
+                                    rejuvenation.
                                 </p>
-                                <div class="service-price">From $285</div>
                             </div>
-                        </div>
 
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Holistic Body Treatments"
-                            />
-                            <div class="service-card-content">
-                                <h3>Holistic Body Treatments</h3>
+                            <div class="feature-card">
+                                <i data-lucide="heart" class="feature-icon" aria-hidden="true"></i>
+                                <h3>Personalized Care</h3>
                                 <p>
-                                    Comprehensive body therapies combining
-                                    massage, exfoliation, and nourishment for
-                                    complete renewal.
+                                    Bespoke wellness journeys tailored to your
+                                    unique needs and preferences for optimal
+                                    results.
                                 </p>
-                                <div class="service-price">From $425</div>
-                            </div>
-                        </div>
-
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Wellness Consultations"
-                            />
-                            <div class="service-card-content">
-                                <h3>Wellness Consultations</h3>
-                                <p>
-                                    Personalized wellness assessments and
-                                    lifestyle coaching to optimize your health
-                                    and well-being journey.
-                                </p>
-                                <div class="service-price">From $195</div>
-                            </div>
-                        </div>
-
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Meditation & Mindfulness"
-                            />
-                            <div class="service-card-content">
-                                <h3>Meditation & Mindfulness</h3>
-                                <p>
-                                    Guided meditation sessions and mindfulness
-                                    training in our serene meditation pavilion.
-                                </p>
-                                <div class="service-price">From $150</div>
-                            </div>
-                        </div>
-
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Luxury Amenities"
-                            />
-                            <div class="service-card-content">
-                                <h3>Luxury Amenities</h3>
-                                <p>
-                                    Access to our world-class facilities
-                                    including thermal pools, saunas, steam
-                                    rooms, and relaxation lounges.
-                                </p>
-                                <div class="service-price">Day Pass $125</div>
                             </div>
                         </div>
                     </div>
+                </section>
+            </div>
 
-                    <!-- Package Deals -->
-                    <div class="packages">
-                        <h2>Exclusive Wellness Packages</h2>
-                        <div class="packages-grid">
-                            <div class="package-card">
-                                <h3>Renewal Retreat</h3>
+            <!-- About Page / Our Clinic -->
+            <div id="about" class="page">
+                <section class="section" style="background: var(--luxury-cream)">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Our Clinic</h1>
+                            <p>Pioneering luxury wellness in Calgary since 2010</p>
+                        </div>
+
+                        <div class="about-grid">
+                            <div class="about-image">
+                                <img
+                                    src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                                    alt="Luxury spa interior with modern amenities"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="about-content">
+                                <h2>Our Story</h2>
                                 <p>
-                                    Half-day wellness journey including
-                                    signature ritual, facial therapy, and
-                                    amenities access
+                                    Founded by renowned wellness expert Isabella
+                                    Montrose, Luxury Wellness was born from a vision
+                                    to create Calgary's most opulent and
+                                    transformative spa experience.
                                 </p>
-                                <div class="package-price">
-                                    $595 (Save $165)
+                                <p>
+                                    With over two decades of experience in luxury
+                                    hospitality and wellness, Isabella recognized
+                                    the need for a sanctuary where discerning
+                                    clients could escape and indulge in the ultimate
+                                    wellness journey.
+                                </p>
+                                <p>
+                                    Our philosophy combines timeless spa traditions
+                                    with innovative wellness technologies in an
+                                    environment of uncompromising luxury.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="about-grid">
+                            <div class="about-content">
+                                <h2>Our Philosophy</h2>
+                                <p>
+                                    To provide an extraordinary wellness experience
+                                    that transcends traditional spa services,
+                                    creating lasting transformation through luxury,
+                                    innovation, and personalized care.
+                                </p>
+
+                                <ul class="check-list">
+                                    <li>
+                                        <i
+                                            data-lucide="check"
+                                            class="check-icon"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Bespoke wellness programs
+                                    </li>
+                                    <li>
+                                        <i
+                                            data-lucide="check"
+                                            class="check-icon"
+                                            aria-hidden="true"
+                                        ></i>
+                                        World-class facilities and amenities
+                                    </li>
+                                    <li>
+                                        <i
+                                            data-lucide="check"
+                                            class="check-icon"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Expert therapists and wellness consultants
+                                    </li>
+                                    <li>
+                                        <i
+                                            data-lucide="check"
+                                            class="check-icon"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Commitment to excellence and innovation
+                                    </li>
+                                    <li>
+                                        <i
+                                            data-lucide="check"
+                                            class="check-icon"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Sustainable luxury practices
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="about-image">
+                                <img
+                                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                                    alt="Luxury treatment room with premium facilities"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Services Page -->
+            <div id="services" class="page">
+                <section class="section" style="background: white">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Massage Services</h1>
+                            <p>
+                                Discover our comprehensive collection of world-class
+                                massage services and transformative wellness experiences.
+                            </p>
+                        </div>
+
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Deep Tissue Massage therapy room"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Deep Tissue Massage</h3>
+                                    <p>
+                                        Intensive therapeutic massage targeting deep muscle
+                                        layers to relieve chronic tension and pain.
+                                    </p>
+                                    <div class="service-price">From $150</div>
                                 </div>
                             </div>
-                            <div class="package-card">
-                                <h3>Ultimate Transformation</h3>
-                                <p>
-                                    Full-day luxury experience with multiple
-                                    treatments, consultation, and gourmet
-                                    wellness meal
-                                </p>
-                                <div class="package-price">
-                                    $1,285 (Save $315)
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Relaxation Massage treatment room"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Relaxation Massage</h3>
+                                    <p>
+                                        Gentle, soothing massage designed to promote
+                                        complete relaxation and stress relief.
+                                    </p>
+                                    <div class="service-price">From $120</div>
                                 </div>
                             </div>
-                            <div class="package-card">
-                                <h3>Wellness Membership</h3>
-                                <p>
-                                    Monthly unlimited amenities access plus
-                                    priority booking and member exclusive
-                                    treatments
-                                </p>
-                                <div class="package-price">$385/month</div>
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Prenatal Massage specialized treatment room"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Prenatal Massage</h3>
+                                    <p>
+                                        Specialized massage therapy for expecting mothers,
+                                        focusing on comfort and wellness during pregnancy.
+                                    </p>
+                                    <div class="service-price">From $130</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Hot Stone Massage therapy setup"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Hot Stone Massage</h3>
+                                    <p>
+                                        Therapeutic massage using heated stones to
+                                        penetrate deep into muscles for ultimate relaxation.
+                                    </p>
+                                    <div class="service-price">From $175</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Couples Massage luxury suite"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Couples Massage</h3>
+                                    <p>
+                                        Share a luxurious massage experience in our
+                                        private couples suite with your partner.
+                                    </p>
+                                    <div class="service-price">From $280</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Sports Massage therapy for athletes"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Sports Massage</h3>
+                                    <p>
+                                        Performance-focused massage therapy designed
+                                        for athletes and active individuals.
+                                    </p>
+                                    <div class="service-price">From $160</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package Deals -->
+                        <div class="packages">
+                            <h2>Wellness Packages</h2>
+                            <div class="packages-grid">
+                                <div class="package-card">
+                                    <h3>Renewal Package</h3>
+                                    <p>
+                                        60-minute massage plus access to all
+                                        spa amenities for the day
+                                    </p>
+                                    <div class="package-price">
+                                        $185 (Save $40)
+                                    </div>
+                                </div>
+                                <div class="package-card">
+                                    <h3>Ultimate Wellness</h3>
+                                    <p>
+                                        90-minute signature massage, facial treatment,
+                                        and full-day amenities access
+                                    </p>
+                                    <div class="package-price">
+                                        $350 (Save $75)
+                                    </div>
+                                </div>
+                                <div class="package-card">
+                                    <h3>Monthly Membership</h3>
+                                    <p>
+                                        Two 60-minute massages per month plus
+                                        unlimited amenities access
+                                    </p>
+                                    <div class="package-price">$285/month</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <!-- Meet the Team Page -->
-        <div id="team" class="page">
-            <section class="section" style="background: white">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Meet the Team</h1>
-                        <p>Our expert wellness professionals dedicated to your transformation</p>
-                    </div>
-
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Dr. Isabella Montrose"
-                            />
-                            <div class="service-card-content">
-                                <h3>Dr. Isabella Montrose</h3>
-                                <p>
-                                    Founder & Wellness Director. Over 20 years of experience in luxury wellness and holistic healing.
-                                </p>
-                                <div class="service-price">Wellness Consultant</div>
-                            </div>
+            <!-- Meet the Team Page -->
+            <div id="team" class="page">
+                <section class="section" style="background: white">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Meet the Team</h1>
+                            <p>Our expert massage therapists dedicated to your wellness</p>
                         </div>
 
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1594824313472-7e2f5c2b3e92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Sarah Chen"
-                            />
-                            <div class="service-card-content">
-                                <h3>Sarah Chen</h3>
-                                <p>
-                                    Senior Massage Therapist specializing in deep tissue and therapeutic massage techniques.
-                                </p>
-                                <div class="service-price">Licensed Massage Therapist</div>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Isabella Montrose, Founder and Wellness Director"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Isabella Montrose</h3>
+                                    <p>
+                                        Founder & Wellness Director. Over 20 years of experience in luxury wellness and therapeutic massage.
+                                    </p>
+                                    <div class="service-price">RMT, Wellness Consultant</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="Maria Rodriguez"
-                            />
-                            <div class="service-card-content">
-                                <h3>Maria Rodriguez</h3>
-                                <p>
-                                    Lead Esthetician with expertise in advanced skincare treatments and facial therapies.
-                                </p>
-                                <div class="service-price">Master Esthetician</div>
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1594824313472-7e2f5c2b3e92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Sarah Chen, Senior Massage Therapist"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Sarah Chen</h3>
+                                    <p>
+                                        Senior Massage Therapist specializing in deep tissue and therapeutic massage techniques.
+                                    </p>
+                                    <div class="service-price">Registered Massage Therapist</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="service-card">
-                            <img
-                                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                                alt="James Thompson"
-                            />
-                            <div class="service-card-content">
-                                <h3>James Thompson</h3>
-                                <p>
-                                    Wellness Coach specializing in mindfulness, meditation, and holistic lifestyle coaching.
-                                </p>
-                                <div class="service-price">Certified Wellness Coach</div>
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Maria Rodriguez, Prenatal Specialist"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>Maria Rodriguez</h3>
+                                    <p>
+                                        Prenatal Massage Specialist with expertise in pregnancy wellness and postnatal care.
+                                    </p>
+                                    <div class="service-price">RMT, Prenatal Specialist</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <img
+                                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="James Thompson, Sports Massage Therapist"
+                                    loading="lazy"
+                                />
+                                <div class="service-card-content">
+                                    <h3>James Thompson</h3>
+                                    <p>
+                                        Sports Massage Therapist specializing in athletic performance and injury rehabilitation.
+                                    </p>
+                                    <div class="service-price">RMT, Sports Therapy</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <!-- Privacy Policy Page -->
-        <div id="privacy" class="page">
-            <section class="section" style="background: var(--luxury-cream)">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Privacy Policy</h1>
-                        <p>Your privacy and confidentiality are our top priorities</p>
-                    </div>
+            <!-- Privacy Policy Page -->
+            <div id="privacy" class="page">
+                <section class="section" style="background: var(--luxury-cream)">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Privacy Policy</h1>
+                            <p>Your privacy and confidentiality are our top priorities</p>
+                        </div>
 
-                    <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                        <div style="background: white; padding: 3rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information We Collect</h2>
-                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
-                                We collect information you provide directly to us, such as when you book appointments, 
-                                sign up for our newsletter, or contact us for services. This includes your name, 
-                                email address, phone number, and health-related information necessary for treatments.
-                            </p>
+                        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                            <div style="background: white; padding: 3rem; border-radius: 10px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information We Collect</h2>
+                                <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                    We collect information you provide directly to us, such as when you book appointments, 
+                                    sign up for our newsletter, or contact us for services. This includes your name, 
+                                    email address, phone number, and health-related information necessary for treatments.
+                                </p>
 
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">How We Use Your Information</h2>
-                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
-                                Your information is used to provide and improve our services, communicate with you, 
-                                and ensure your safety and comfort during treatments. We may also use your information 
-                                to send you promotional materials about our services.
-                            </p>
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">How We Use Your Information</h2>
+                                <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                    Your information is used to provide and improve our services, communicate with you, 
+                                    and ensure your safety and comfort during treatments. We may also use your information 
+                                    to send you promotional materials about our services.
+                                </p>
 
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information Sharing</h2>
-                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
-                                We do not sell, trade, or rent your personal information to third parties. 
-                                We may share your information with trusted partners who assist us in operating 
-                                our business, conducting services, or serving you.
-                            </p>
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Information Sharing</h2>
+                                <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                    We do not sell, trade, or rent your personal information to third parties. 
+                                    We may share your information with trusted partners who assist us in operating 
+                                    our business, conducting services, or serving you.
+                                </p>
 
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Data Security</h2>
-                            <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
-                                We implement appropriate security measures to protect your personal information 
-                                against unauthorized access, alteration, disclosure, or destruction.
-                            </p>
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Data Security</h2>
+                                <p style="margin-bottom: 1.5rem; color: var(--text-dark);">
+                                    We implement appropriate security measures to protect your personal information 
+                                    against unauthorized access, alteration, disclosure, or destruction.
+                                </p>
 
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Contact Us</h2>
-                            <p style="color: var(--text-dark);">
-                                If you have questions about this Privacy Policy, please contact us at 
-                                <a href="mailto:privacy@luxurywellness.com" style="color: var(--primary-gold);">privacy@luxurywellness.com</a>
-                                or call us at (555) 987-6543.
-                            </p>
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Contact Us</h2>
+                                <p style="color: var(--text-dark);">
+                                    If you have questions about this Privacy Policy, please contact us at 
+                                    <a href="mailto:privacy@luxurywellness.ca" style="color: var(--primary-gold);">privacy@luxurywellness.ca</a>
+                                    or call us at (403) 555-0123.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <!-- Gift Cards Page -->
-        <div id="gift-cards" class="page">
-            <section class="section" style="background: white">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Gift Cards</h1>
-                        <p>Give the gift of luxury wellness and transformation</p>
+            <!-- Gift Cards Page -->
+            <div id="gift-cards" class="page">
+                <section class="section" style="background: white">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Gift Cards</h1>
+                            <p>Give the gift of luxury wellness and relaxation</p>
+                        </div>
+
+                        <div class="packages">
+                            <div class="packages-grid">
+                                <div class="package-card">
+                                    <h3>Wellness Starter</h3>
+                                    <p>
+                                        Perfect for first-time visitors. Includes 60-minute
+                                        relaxation massage and amenities access.
+                                    </p>
+                                    <div class="package-price">$150</div>
+                                </div>
+                                <div class="package-card">
+                                    <h3>Luxury Experience</h3>
+                                    <p>
+                                        Comprehensive spa day with choice of massage,
+                                        full amenities access, and refreshments.
+                                    </p>
+                                    <div class="package-price">$250</div>
+                                </div>
+                                <div class="package-card">
+                                    <h3>Ultimate Transformation</h3>
+                                    <p>
+                                        Our most luxurious package including multiple
+                                        treatments and exclusive services.
+                                    </p>
+                                    <div class="package-price">$400</div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 3rem;">
+                                <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Custom Gift Cards</h2>
+                                <p style="color: var(--text-light); margin-bottom: 2rem;">
+                                    Want to create a custom gift card amount? Contact our team 
+                                    and we'll create a personalized gift card for any amount.
+                                </p>
+                                <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">Purchase Gift Card</a>
+                            </div>
+                        </div>
                     </div>
+                </section>
+            </div>
 
-                    <div class="packages">
-                        <div class="packages-grid">
-                            <div class="package-card">
-                                <h3>Wellness Starter</h3>
-                                <p>
-                                    Perfect for first-time visitors. Includes basic amenities access 
-                                    and choice of signature treatment.
-                                </p>
-                                <div class="package-price">$250</div>
+            <!-- Reviews Page -->
+            <div id="reviews" class="page">
+                <section class="section" style="background: var(--luxury-cream)">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Client Reviews</h1>
+                            <p>What our clients are saying about their luxury wellness experiences</p>
+                        </div>
+
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "The deep tissue massage was exactly what I needed after months of stress. 
+                                        Sarah was incredibly skilled and the facility is beautiful."
+                                    </p>
+                                    <div class="service-price">- Jennifer M.</div>
+                                </div>
                             </div>
-                            <div class="package-card">
-                                <h3>Luxury Experience</h3>
-                                <p>
-                                    Comprehensive spa day with multiple treatments, 
-                                    full amenities access, and gourmet refreshments.
-                                </p>
-                                <div class="package-price">$500</div>
+
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "I've been to many spas in Calgary, but Luxury Wellness is exceptional. 
+                                        The attention to detail and personalized service is unmatched."
+                                    </p>
+                                    <div class="service-price">- Michael R.</div>
+                                </div>
                             </div>
-                            <div class="package-card">
-                                <h3>Ultimate Transformation</h3>
-                                <p>
-                                    Our most luxurious package including personalized consultation, 
-                                    multiple premium treatments, and exclusive services.
-                                </p>
-                                <div class="package-price">$1,000</div>
+
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "The prenatal massage with Maria was amazing throughout my pregnancy. 
+                                        She made me feel so comfortable and relaxed every visit."
+                                    </p>
+                                    <div class="service-price">- Lisa & David K.</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "The couples massage was the perfect anniversary gift. The private suite 
+                                        was gorgeous and we both felt completely pampered."
+                                    </p>
+                                    <div class="service-price">- Amanda T.</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "As an athlete, James's sports massage therapy has been crucial for my 
+                                        recovery. Professional, knowledgeable, and effective."
+                                    </p>
+                                    <div class="service-price">- Robert S.</div>
+                                </div>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-card-content">
+                                    <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;" aria-label="5 out of 5 stars">
+                                        ★★★★★
+                                    </div>
+                                    <p style="font-style: italic; margin-bottom: 1rem;">
+                                        "The monthly membership has been the best investment in my health. 
+                                        Regular massages have improved my quality of life significantly."
+                                    </p>
+                                    <div class="service-price">- Catherine W.</div>
+                                </div>
                             </div>
                         </div>
 
                         <div style="text-align: center; margin-top: 3rem;">
-                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Custom Gift Cards</h2>
+                            <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Share Your Experience</h2>
                             <p style="color: var(--text-light); margin-bottom: 2rem;">
-                                Want to create a custom gift card amount? Contact our concierge team 
-                                and we'll create a personalized gift card for any amount.
+                                We'd love to hear about your wellness journey with us. 
+                                Share your review and help others discover the luxury wellness experience.
                             </p>
-                            <a href="#" class="btn btn-primary" onclick="showPage('contact')">Purchase Gift Card</a>
+                            <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">Write a Review</a>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <!-- Reviews Page -->
-        <div id="reviews" class="page">
-            <section class="section" style="background: var(--luxury-cream)">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Client Reviews</h1>
-                        <p>What our clients are saying about their luxury wellness experiences</p>
-                    </div>
-
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
-                                </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "Absolutely transformative experience! The Golden Goddess Ritual 
-                                    exceeded all my expectations. The staff was incredibly professional 
-                                    and the facility is breathtaking."
-                                </p>
-                                <div class="service-price">- Sarah M.</div>
-                            </div>
+            <!-- Contact Page -->
+            <div id="contact" class="page">
+                <section class="section" style="background: white">
+                    <div class="container">
+                        <div class="section-title">
+                            <h1>Contact Luxury Wellness</h1>
+                            <p>
+                                Begin your journey to ultimate wellness. Our
+                                team is ready to curate your perfect massage experience.
+                            </p>
                         </div>
 
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input
+                                            type="text"
+                                            id="firstName"
+                                            name="firstName"
+                                            required
+                                            aria-describedby="firstName-error"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input
+                                            type="text"
+                                            id="lastName"
+                                            name="lastName"
+                                            required
+                                            aria-describedby="lastName-error"
+                                        />
+                                    </div>
                                 </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "I've been to many spas, but Luxury Wellness is in a league of its own. 
-                                    The attention to detail and personalized service is unmatched."
-                                </p>
-                                <div class="service-price">- Michael R.</div>
-                            </div>
-                        </div>
 
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            required
+                                            aria-describedby="email-error"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            required
+                                            aria-describedby="phone-error"
+                                        />
+                                    </div>
                                 </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "The couples retreat was the perfect anniversary gift. We felt 
-                                    completely pampered and renewed. Will definitely be returning!"
-                                </p>
-                                <div class="service-price">- Jennifer & David L.</div>
-                            </div>
-                        </div>
 
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
-                                </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "The Diamond Radiance Facial gave me the most glowing skin I've ever had. 
-                                    The esthetician was knowledgeable and the results were immediate."
-                                </p>
-                                <div class="service-price">- Amanda K.</div>
-                            </div>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
-                                </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "From the moment I walked in, I felt like royalty. The amenities are 
-                                    world-class and the treatments are truly luxurious."
-                                </p>
-                                <div class="service-price">- Robert T.</div>
-                            </div>
-                        </div>
-
-                        <div class="service-card">
-                            <div class="service-card-content">
-                                <div style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.2rem;">
-                                    ★★★★★
-                                </div>
-                                <p style="font-style: italic; margin-bottom: 1rem;">
-                                    "I purchased the wellness membership and it's been the best investment 
-                                    in my health and well-being. The monthly treatments keep me balanced."
-                                </p>
-                                <div class="service-price">- Lisa W.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 3rem;">
-                        <h2 style="color: var(--primary-gold); margin-bottom: 1.5rem;">Share Your Experience</h2>
-                        <p style="color: var(--text-light); margin-bottom: 2rem;">
-                            We'd love to hear about your wellness journey with us. 
-                            Share your review and help others discover the luxury wellness experience.
-                        </p>
-                        <a href="#" class="btn btn-primary" onclick="showPage('contact')">Write a Review</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Contact Page -->
-        <div id="contact" class="page">
-            <section class="section" style="background: white">
-                <div class="container">
-                    <div class="section-title">
-                        <h1>Contact Luxury Wellness</h1>
-                        <p>
-                            Begin your journey to ultimate wellness. Our
-                            concierge team is ready to curate your perfect
-                            experience.
-                        </p>
-                    </div>
-
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-row">
                                 <div class="form-group">
-                                    <label for="firstName">First Name *</label>
-                                    <input
-                                        type="text"
-                                        id="firstName"
-                                        name="firstName"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName">Last Name *</label>
-                                    <input
-                                        type="text"
-                                        id="lastName"
-                                        name="lastName"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone Number *</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="interest">Service Interest *</label>
-                                <select id="interest" name="interest" required>
-                                    <option value="">
-                                        Select your interest...
-                                    </option>
-                                    <option value="signature-rituals">
-                                        Signature Spa Rituals
-                                    </option>
-                                    <option value="facial-therapies">
-                                        Advanced Facial Therapies
-                                    </option>
-                                    <option value="body-treatments">
-                                        Holistic Body Treatments
-                                    </option>
-                                    <option value="wellness-consultation">
-                                        Wellness Consultations
-                                    </option>
-                                    <option value="treatments">
-                                        Signature Treatments
-                                    </option>
-                                    <option value="packages">
-                                        Wellness Packages
-                                    </option>
-                                    <option value="membership">
-                                        Wellness Membership
-                                    </option>
-                                    <option value="custom">
-                                        Custom Experience
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="date">Preferred Date</label>
-                                    <input type="date" id="date" name="date" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="time">Preferred Time</label>
-                                    <select id="time" name="time">
-                                        <option value="">Select time...</option>
-                                        <option value="9:00">9:00 AM</option>
-                                        <option value="10:00">10:00 AM</option>
-                                        <option value="11:00">11:00 AM</option>
-                                        <option value="12:00">12:00 PM</option>
-                                        <option value="1:00">1:00 PM</option>
-                                        <option value="2:00">2:00 PM</option>
-                                        <option value="3:00">3:00 PM</option>
-                                        <option value="4:00">4:00 PM</option>
-                                        <option value="5:00">5:00 PM</option>
-                                        <option value="6:00">6:00 PM</option>
+                                    <label for="interest">Service Interest *</label>
+                                    <select id="interest" name="interest" required aria-describedby="interest-error">
+                                        <option value="">
+                                            Select your interest...
+                                        </option>
+                                        <option value="deep-tissue">
+                                            Deep Tissue Massage
+                                        </option>
+                                        <option value="relaxation">
+                                            Relaxation Massage
+                                        </option>
+                                        <option value="prenatal">
+                                            Prenatal Massage
+                                        </option>
+                                        <option value="hot-stone">
+                                            Hot Stone Massage
+                                        </option>
+                                        <option value="couples">
+                                            Couples Massage
+                                        </option>
+                                        <option value="sports">
+                                            Sports Massage
+                                        </option>
+                                        <option value="packages">
+                                            Wellness Packages
+                                        </option>
+                                        <option value="membership">
+                                            Monthly Membership
+                                        </option>
+                                        <option value="gift-card">
+                                            Gift Card
+                                        </option>
                                     </select>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="message"
-                                    >Special Requests or Preferences</label
-                                >
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="4"
-                                    placeholder="Tell us about your wellness goals, any special occasions, dietary restrictions, or preferences we should know about..."
-                                ></textarea>
-                            </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="date">Preferred Date</label>
+                                        <input type="date" id="date" name="date" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="time">Preferred Time</label>
+                                        <select id="time" name="time">
+                                            <option value="">Select time...</option>
+                                            <option value="9:00">9:00 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="1:00">1:00 PM</option>
+                                            <option value="2:00">2:00 PM</option>
+                                            <option value="3:00">3:00 PM</option>
+                                            <option value="4:00">4:00 PM</option>
+                                            <option value="5:00">5:00 PM</option>
+                                            <option value="6:00">6:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                            <div class="form-group" style="text-align: center">
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary"
-                                    style="padding: 1rem 2.5rem"
-                                >
-                                    Send Inquiry
-                                </button>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label for="message"
+                                        >Special Requests or Health Considerations</label
+                                    >
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="4"
+                                        placeholder="Tell us about any health conditions, areas of focus, special occasions, or preferences we should know about..."
+                                    ></textarea>
+                                </div>
 
-                        <!-- Contact Information -->
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i data-lucide="phone" class="contact-icon"></i>
-                                <div>
-                                    <strong>Reservations</strong><br />
-                                    (555) 987-6543
+                                <div class="form-group" style="text-align: center">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary"
+                                        style="padding: 1rem 2.5rem"
+                                    >
+                                        Send Inquiry
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="contact-item">
-                                <i data-lucide="mail" class="contact-icon"></i>
-                                <div>
-                                    <strong>Email</strong><br />
-                                    concierge@luxurywellness.com
+                            </form>
+
+                            <!-- Contact Information -->
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i data-lucide="phone" class="contact-icon" aria-hidden="true"></i>
+                                    <div>
+                                        <strong>Reservations</strong><br />
+                                        (403) 555-0123
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="contact-item">
-                                <i
-                                    data-lucide="map-pin"
-                                    class="contact-icon"
-                                ></i>
-                                <div>
-                                    <strong>Location</strong><br />
-                                    1250 Wellness Boulevard<br />Beverly Hills,
-                                    CA 90210
+                                <div class="contact-item">
+                                    <i data-lucide="mail" class="contact-icon" aria-hidden="true"></i>
+                                    <div>
+                                        <strong>Email</strong><br />
+                                        info@luxurywellness.ca
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="contact-item">
-                                <i data-lucide="clock" class="contact-icon"></i>
-                                <div>
-                                    <strong>Hours</strong><br />
-                                    Daily 8:00 AM - 9:00 PM
+                                <div class="contact-item">
+                                    <i
+                                        data-lucide="map-pin"
+                                        class="contact-icon"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <div>
+                                        <strong>Location</strong><br />
+                                        1250 Wellness Boulevard<br />Calgary,
+                                        AB T2P 1X8
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i data-lucide="clock" class="contact-icon" aria-hidden="true"></i>
+                                    <div>
+                                        <strong>Hours</strong><br />
+                                        Daily 8:00 AM - 9:00 PM
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </main>
 
         <!-- Footer -->
-        <footer>
+        <footer role="contentinfo">
             <div class="container">
                 <div class="footer-grid">
                     <div class="footer-section">
@@ -1710,6 +1731,7 @@
                                     color: var(--primary-gold);
                                     font-size: 1.5rem;
                                 "
+                                aria-hidden="true"
                             ></i>
                             <span
                                 style="
@@ -1727,13 +1749,13 @@
                                 margin-bottom: 1rem;
                             "
                         >
-                            The ultimate destination for luxury wellness and
-                            transformative spa experiences.
+                            The ultimate destination for luxury massage therapy and
+                            transformative wellness experiences in Calgary.
                         </p>
                         <div class="social-links">
-                            <a href="#"><i data-lucide="facebook"></i></a>
-                            <a href="#"><i data-lucide="instagram"></i></a>
-                            <a href="#"><i data-lucide="twitter"></i></a>
+                            <a href="#" aria-label="Facebook" onclick="return false;"><i data-lucide="facebook"></i></a>
+                            <a href="#" aria-label="Instagram" onclick="return false;"><i data-lucide="instagram"></i></a>
+                            <a href="#" aria-label="Twitter" onclick="return false;"><i data-lucide="twitter"></i></a>
                         </div>
                     </div>
 
@@ -1741,29 +1763,19 @@
                         <h4>Services</h4>
                         <ul>
                             <li>
-                                <a href="#" onclick="showPage('services')"
-                                    >Signature Spa Rituals</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Deep Tissue Massage</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('services')"
-                                    >Advanced Facial Therapies</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Relaxation Massage</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('treatments')"
-                                    >Signature Treatments</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Prenatal Massage</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('services')"
-                                    >Wellness Consultations</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Hot Stone Massage</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('services')"
-                                    >Luxury Amenities</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Sports Massage</a>
                             </li>
                         </ul>
                     </div>
@@ -1772,29 +1784,19 @@
                         <h4>Quick Links</h4>
                         <ul>
                             <li>
-                                <a href="#" onclick="showPage('about')"
-                                    >Our Clinic</a
-                                >
+                                <a href="#about" onclick="showPage('about'); return false;">Our Clinic</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('services')"
-                                    >Services</a
-                                >
+                                <a href="#services" onclick="showPage('services'); return false;">Services</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('gift-cards')"
-                                    >Gift Cards</a
-                                >
+                                <a href="#gift-cards" onclick="showPage('gift-cards'); return false;">Gift Cards</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('reviews')"
-                                    >Reviews</a
-                                >
+                                <a href="#reviews" onclick="showPage('reviews'); return false;">Reviews</a>
                             </li>
                             <li>
-                                <a href="#" onclick="showPage('contact')"
-                                    >Contact</a
-                                >
+                                <a href="#contact" onclick="showPage('contact'); return false;">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -1816,10 +1818,11 @@
                                         margin-top: 0.125rem;
                                         flex-shrink: 0;
                                     "
+                                    aria-hidden="true"
                                 ></i>
                                 <span
-                                    >1250 Wellness Boulevard<br />Beverly Hills,
-                                    CA 90210</span
+                                    >1250 Wellness Boulevard<br />Calgary,
+                                    AB T2P 1X8</span
                                 >
                             </div>
                             <div
@@ -1832,15 +1835,17 @@
                                 <i
                                     data-lucide="phone"
                                     style="margin-right: 0.75rem"
+                                    aria-hidden="true"
                                 ></i>
-                                <span>(555) 987-6543</span>
+                                <span>(403) 555-0123</span>
                             </div>
                             <div style="display: flex; align-items: center">
                                 <i
                                     data-lucide="mail"
                                     style="margin-right: 0.75rem"
+                                    aria-hidden="true"
                                 ></i>
-                                <span>concierge@luxurywellness.com</span>
+                                <span>info@luxurywellness.ca</span>
                             </div>
                         </div>
                     </div>
@@ -1856,89 +1861,228 @@
             // Initialize Lucide icons
             lucide.createIcons();
 
-            // Set minimum date to today for contact form
-            document.addEventListener("DOMContentLoaded", function () {
-                const dateInput = document.getElementById("date");
-                if (dateInput) {
-                    const today = new Date().toISOString().split("T")[0];
-                    dateInput.min = today;
+            // Page metadata for SEO
+            const pageMetadata = {
+                home: {
+                    title: "Luxury Wellness – Calgary Massage & Wellness",
+                    description: "Premium massage and wellness services in Calgary. Experience world-class treatments, therapies, and holistic wellness in an opulent setting."
+                },
+                services: {
+                    title: "Massage Services – Deep Tissue, Relaxation, Prenatal | Luxury Wellness",
+                    description: "Discover our comprehensive collection of massage services including deep tissue, relaxation, prenatal, hot stone, couples, and sports massage in Calgary."
+                },
+                about: {
+                    title: "About Luxury Wellness – Our Therapists & Philosophy",
+                    description: "Learn about Luxury Wellness Calgary, founded by Isabella Montrose in 2010. Discover our philosophy of combining traditional massage with innovative wellness."
+                },
+                team: {
+                    title: "Meet the Team – Experienced Calgary Massage Therapists",
+                    description: "Meet our expert massage therapists including Isabella Montrose, Sarah Chen, Maria Rodriguez, and James Thompson dedicated to your wellness in Calgary."
+                },
+                privacy: {
+                    title: "Privacy Policy – Your Privacy & Confidentiality | Luxury Wellness",
+                    description: "Learn how Luxury Wellness protects your privacy and confidentiality. Read our comprehensive privacy policy and data protection practices."
+                },
+                "gift-cards": {
+                    title: "Gift Cards – Give the Gift of Luxury Massage Therapy",
+                    description: "Give the gift of luxury massage and wellness with our gift cards starting from $150. Perfect for any special occasion in Calgary."
+                },
+                reviews: {
+                    title: "Client Reviews – 5-Star Massage Therapy Experiences",
+                    description: "Read what our clients are saying about their luxury massage experiences. See why we're the top-rated massage therapy clinic in Calgary with 5-star reviews."
+                },
+                contact: {
+                    title: "Contact Luxury Wellness – Book a Massage in Calgary",
+                    description: "Contact Luxury Wellness to book your massage therapy appointment in Calgary. Our team is ready to curate your perfect wellness experience."
                 }
-            });
+            };
+            // Update page metadata
+            function updatePageMetadata(pageId) {
+                const metadata = pageMetadata[pageId];
+                if (metadata) {
+                    document.title = metadata.title;
 
-            // Page navigation
+                    // Update meta description
+                    let metaDescription = document.querySelector('meta[name="description"]');
+                    if (metaDescription) {
+                        metaDescription.setAttribute('content', metadata.description);
+                    }
+
+                    // Update og:title
+                    let ogTitle = document.querySelector('meta[property="og:title"]');
+                    if (ogTitle) {
+                        ogTitle.setAttribute('content', metadata.title);
+                    }
+
+                    // Update og:description
+                    let ogDescription = document.querySelector('meta[property="og:description"]');
+                    if (ogDescription) {
+                        ogDescription.setAttribute('content', metadata.description);
+                    }
+                }
+            }
+
+            // Hash-based routing functions
+            function getHashFromUrl() {
+                return window.location.hash.substring(1) || 'home';
+            }
+
+            function updateHash(pageId) {
+                if (pageId === 'home') {
+                    if (window.location.hash) {
+                        history.replaceState(null, null, window.location.pathname);
+                    }
+                } else {
+                    history.replaceState(null, null, `#${pageId}`);
+                }
+            }
+
+            // Page navigation function with hash support
             function showPage(pageId) {
                 // Hide all pages
                 const pages = document.querySelectorAll(".page");
                 pages.forEach((page) => page.classList.remove("active"));
 
                 // Show selected page
-                document.getElementById(pageId).classList.add("active");
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add("active");
+                } else {
+                    // Fallback to home if page doesn't exist
+                    pageId = 'home';
+                    document.getElementById('home').classList.add("active");
+                }
 
                 // Update active nav link
                 const navLinks = document.querySelectorAll(".nav-link");
                 navLinks.forEach((link) => link.classList.remove("active"));
 
                 // Find and activate the corresponding nav link
-                const activeLink = document.querySelector(
-                    `[onclick="showPage('${pageId}')"]`,
-                );
-                if (activeLink && activeLink.classList.contains("nav-link")) {
+                const activeLink = document.querySelector(`a[href="#${pageId}"].nav-link`);
+                if (activeLink) {
                     activeLink.classList.add("active");
                 }
+
+                // Update URL hash (use pushState for better browser history)
+                if (pageId === 'home') {
+                    if (window.location.hash) {
+                        history.pushState(null, null, window.location.pathname);
+                    }
+                } else {
+                    history.pushState(null, null, `#${pageId}`);
+                }
+
+                // Update page metadata
+                updatePageMetadata(pageId);
 
                 // Scroll to top
                 window.scrollTo(0, 0);
             }
 
+            // Handle hash changes (browser back/forward)
+            function handleHashChange() {
+                const pageId = getHashFromUrl();
+                
+                // Hide all pages
+                const pages = document.querySelectorAll(".page");
+                pages.forEach((page) => page.classList.remove("active"));
+
+                // Show selected page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add("active");
+                } else {
+                    // Fallback to home if page doesn't exist
+                    document.getElementById('home').classList.add("active");
+                }
+
+                // Update active nav link
+                const navLinks = document.querySelectorAll(".nav-link");
+                navLinks.forEach((link) => link.classList.remove("active"));
+
+                // Find and activate the corresponding nav link
+                const activeLink = document.querySelector(`a[href="#${pageId}"].nav-link`);
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
+
+                // Update page metadata
+                updatePageMetadata(pageId);
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+            // Initialize on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                // Set minimum date to today for contact form
+                const dateInput = document.getElementById("date");
+                if (dateInput) {
+                    const today = new Date().toISOString().split("T")[0];
+                    dateInput.min = today;
+                }
+
+                // Handle initial hash on page load
+                const initialPage = getHashFromUrl();
+                showPage(initialPage);
+
+                // Listen for hash changes (browser back/forward)
+                window.addEventListener('hashchange', handleHashChange);
+            });
+
             // Contact form submission
-            document
-                .getElementById("contactForm")
-                .addEventListener("submit", function (e) {
-                    e.preventDefault();
+            document.addEventListener('DOMContentLoaded', function() {
+                const contactForm = document.getElementById("contactForm");
+                if (contactForm) {
+                    contactForm.addEventListener("submit", function (e) {
+                        e.preventDefault();
 
-                    // Get form data
-                    const formData = new FormData(this);
-                    const data = Object.fromEntries(formData);
+                        // Get form data
+                        const formData = new FormData(this);
+                        const data = Object.fromEntries(formData);
 
-                    // Simple validation
-                    if (
-                        !data.firstName ||
-                        !data.lastName ||
-                        !data.email ||
-                        !data.phone ||
-                        !data.interest
-                    ) {
-                        alert("Please fill in all required fields.");
-                        return;
-                    }
+                        // Simple validation
+                        if (
+                            !data.firstName ||
+                            !data.lastName ||
+                            !data.email ||
+                            !data.phone ||
+                            !data.interest
+                        ) {
+                            alert("Please fill in all required fields.");
+                            return;
+                        }
 
-                    // Simulate form submission
-                    alert(
-                        "Thank you for your inquiry! Our luxury wellness concierge will contact you within 24 hours to arrange your perfect experience.",
-                    );
+                        // Simulate form submission
+                        alert(
+                            "Thank you for your inquiry! Our wellness team will contact you within 24 hours to schedule your appointment.",
+                        );
 
-                    // Reset form
-                    this.reset();
-                });
+                        // Reset form
+                        this.reset();
+                    });
+                }
+            });
 
             // Mobile menu toggle
-            document
-                .querySelector(".mobile-menu-btn")
-                .addEventListener("click", function () {
-                    const navLinks = document.querySelector(".nav-links");
-                    navLinks.classList.toggle("active");
-                });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener("click", function (e) {
-                const navLinks = document.querySelector(".nav-links");
+            document.addEventListener('DOMContentLoaded', function() {
                 const menuBtn = document.querySelector(".mobile-menu-btn");
+                const navLinks = document.querySelector(".nav-links");
 
-                if (
-                    !navLinks.contains(e.target) &&
-                    !menuBtn.contains(e.target)
-                ) {
-                    navLinks.classList.remove("active");
+                if (menuBtn && navLinks) {
+                    menuBtn.addEventListener("click", function () {
+                        navLinks.classList.toggle("active");
+                    });
+
+                    // Close mobile menu when clicking outside
+                    document.addEventListener("click", function (e) {
+                        if (
+                            !navLinks.contains(e.target) &&
+                            !menuBtn.contains(e.target)
+                        ) {
+                            navLinks.classList.remove("active");
+                        }
+                    });
                 }
             });
         </script>
@@ -1947,4 +2091,3 @@
         <script src="https://embed.acuityscheduling.com/embed/button/36238480.js" async></script>
     </body>
 </html>
-
